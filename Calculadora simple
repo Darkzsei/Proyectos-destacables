@@ -1,0 +1,118 @@
+print("""===============================
+            Menú
+===============================
+      """)
+
+from math import sqrt
+
+print("Hola, podria indicar su nombre?")
+nombre = input("Su nombre:")
+
+print(" ")
+
+print("Hola", nombre, "espero que esta mini calculadora le sirva")
+
+print(""" 
+
+      (Para eligir una de las opciones escriba el numero de la opcion:)
+
+      =================================
+             MENU DE OPERACIONES       
+      =================================
+      1.Suma
+
+      2.Resta
+
+      3.Multiplicación
+
+      4. Equaciones de segundo grado
+
+      =================================
+
+
+      """)
+
+variable = input("Elija la opcion: ")
+
+if variable == "1":
+    print("""
+        =================================
+                     S U M A        
+        =================================
+        """)
+
+    print("")
+
+    cdst = int(input("Cuantos diferentes numeros va a usar: "))
+
+    sm = 0
+
+    for i in range(cdst):
+        toy = int(input("Numero a sumar:"))
+        sm = sm + toy
+        print(" ")
+
+    print("Su resultado es: ", sm)
+
+elif variable == "2":
+    print("""
+        =================================
+                   R E S T A        
+        =================================""")
+
+    cdst = int(input("Cuantos diferentes numeros va a usar: "))
+    primervalor = int(input("Poner numero: "))
+
+    res = 0
+
+    for i in range(cdst - 1):
+        toy = int(input("Siguiente numero a restar:"))
+        res = res + toy
+
+    print("Resultado: ", primervalor - res)
+
+elif variable == "3":
+
+    print("""
+        =================================
+           M U L T I P L I C A C I O N      
+        =================================
+        """)
+
+    print("")
+
+    cdst = int(input("Cuantos diferentes numeros va a usar: "))
+
+    sm = 1
+
+    for i in range(cdst):
+        toy = int(input("Numero para multiplicar:"))
+        sm = sm * toy
+        print(" ")
+
+    print("Su resultado es: ", sm)
+
+elif variable == "4":
+    print("""
+     =================================
+        EQUACION DE SEGUNDO GRADO   
+     =================================
+        """)
+    print("(Recuerdo, que la formula basica de una ecuacion de segundo grado es ax2 + bx + c = 0)")
+
+    a, b, c = [float(input(f"Deme los numeros {coef}: ")) for coef in ("a", "b", "c")]
+
+    numero = b ** 2 - 4 * a * c
+
+    if numero < 0:
+        print("La ecuacion tendria numeros complejos")
+    else:
+        raiz = sqrt(numero)
+        x1 = (-b + raiz) / (2 * a)
+        if numero != 0:
+            x2 = (-b - raiz) / (2 * a)
+            print(f"Las soluciones son {x1} y  {x2}")
+        else:
+            print(f"La unica opcion es {x1}")
+else:
+    print("Elige una de las cuatro opciones")
